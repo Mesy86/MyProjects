@@ -1,0 +1,39 @@
+<ui:composition template="templateAnmeldung.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+
+<ui:param name="seitenTitel" value="Willkommen"/>
+
+<ui:define name="content">
+	<div class="inhalte-zentriert">
+		<h1 class="ueberschrift">Willkommen bei MyProjects</h1>
+	</div>
+	
+	<div class="inhalte-zentriert">
+		<h:graphicImage value="/resources/pictures/terminkalender.jpg" />
+		
+	</div>
+	
+	<div class="inhalte-zentriert">
+		<h1 class="ueberschrift">Zeitmanagement leicht gemacht!</h1>
+	</div>
+	
+	<div class="inhalte-zentriert"> 
+		<h2 class="ueberschrift">Plane und verwalte deine Projekte und Aufgaben einfach und zuverlässig</h2>
+	</div>
+	
+	<div class="inhalte-zentriert">
+		<h:form> 
+			<h:link value="Log dich ein" outcome="login.xhtml"/>
+			oder
+			<h:link value="registriere dich neu" outcome="registration.xhtml"/>
+		</h:form>
+	</div>
+</ui:define>
+
+
+</ui:composition>

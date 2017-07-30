@@ -1,0 +1,47 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Fertigstellung" />
+
+<ui:define name="content">
+	<script type="text/javascript" xmlns:h="http://xmlns.jcp.org/jsf/html">
+		function print(component)
+		{
+			var out = document.createElement('div');
+			out.appendChild(PF(component).exportAsImage());
+			var innerHTML = out.innerHTML; 
+			var openWindow = window.open('', 'Report', ''); 
+			openWindow.document.write(innerHTML); 
+			openWindow.document.close(); 
+			openWindow.focus(); 
+			openWindow.print(); 
+			openWindow.close(); 
+		}
+	</script>
+	
+	<h1 class="inhalte-zentriert ueberschrift">Fertigstellung der Projekte</h1>
+	<br/>
+	<br/>
+	
+	<h:form>
+		<p:growl id="growl" showDetail="true"/> 
+		
+		<h:panelGrid class="panel" id="panelId" columns="1" columnClasses="left,right" style="width:100%;">
+			<p:chart widgetVar="chart" type="pie" model="#{visualisierungFertigstellungView.pie}" style="width:500px;height:500px">
+				<p:ajax event="itemSelect" listener="#{visualisierungFertigstellungView.itemSelect}" update="growl"/>
+			</p:chart>
+		</h:panelGrid>
+		
+		<div class="btnDiv">
+			<p:commandButton class="buttonAuto" id="btn" icon="ui-icon-print" value="Print" onclick="print('chart')"/>
+		</div>
+		
+	</h:form>
+
+</ui:define>
+</ui:composition>

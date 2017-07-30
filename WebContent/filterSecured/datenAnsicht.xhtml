@@ -1,0 +1,52 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Profil" />
+
+<ui:define name="content">
+	<div class="inhalte-zentriert">
+		<h1 class="ueberschrift">Dein Profil</h1>
+	</div>
+	<br/>
+	<br/>
+	<h:form id="form" class="inhalte-zentriert">
+		<p:growl id="msgs" showDetail="true"/>
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel class="schrift" for="vorname" value="Vorname: "/>
+			<p:outputLabel class="schrift" id="vorname" value="#{eigeneDatenAnsichtView.vorname}" />
+			
+			<p:outputLabel class="schrift" for="nachname" value="Nachname: "/>
+			<p:outputLabel class="schrift" id="nachname" value="#{eigeneDatenAnsichtView.nachname}"/>
+			
+			<p:outputLabel class="schrift" for="benutzername" value="Benutzername: "/>
+			<p:outputLabel class="schrift" id="benutzername" value="#{eigeneDatenAnsichtView.benutzername}"/>
+			
+			<p:outputLabel class="schrift" for="email" value="Email: "/>
+			<p:outputLabel class="schrift" id="email" value="#{eigeneDatenAnsichtView.email}" />
+			
+			<p:button class="button100" icon="ui-icon-pencil" value="Bearbeiten" outcome="datenBearbeiten.xhtml"/>
+			<p:commandButton class="button100" icon="ui-icon-trash" value="Account löschen" action="#{eigeneDatenAnsichtView.accountLoeschen}" update=":form:msgs" >
+				<p:confirm header="Bestätigung" message="Account wirklich löschen?" icon="ui-icon-alert"/>
+			</p:commandButton>
+			<br/>
+					
+			<f:facet name="footer">
+				<h:panelGroup style="display:block; text-align:center">
+					<p:button class="button" icon="ui-icon-closethick" value="Dashboard" outcome="menue.xhtml"/>
+				</h:panelGroup>
+			</f:facet>
+		</h:panelGrid>
+		
+		<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+			<p:commandButton class="schrift" value="Ja" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" update=":form"/>
+			<p:commandButton class="schrift" value="Nein" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+		</p:confirmDialog>
+	</h:form>
+	
+</ui:define>
+</ui:composition>

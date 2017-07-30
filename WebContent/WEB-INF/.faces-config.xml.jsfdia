@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#home.xhtml" PATH="/home.xhtml"
+  SHAPE="256,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#home.xhtml:0" NAME="item" PATH="/home.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="einloggen::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="einloggen" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="registrieren::#registration.xhtml"
+    NAME="output1" PATH="/registration.xhtml"
+    TARGET="rules:#registration.xhtml" TITLE="registrieren" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="480,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
+   PATH="/login.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="login::#filterSecured#menue.xhtml"
+    NAME="output" PATH="/filterSecured/menue.xhtml"
+    TARGET="rules:#filterSecured#menue.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#registration.xhtml"
+  PATH="/registration.xhtml" SHAPE="480,161,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#registration.xhtml:0" NAME="item"
+   PATH="/registration.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="einloggen::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="einloggen" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="zurueck::#home.xhtml" NAME="output1"
+    PATH="/home.xhtml" TARGET="rules:#home.xhtml" TITLE="zurueck" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#menue.xhtml"
+  PATH="/filterSecured/menue.xhtml" SHAPE="688,33,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#menue.xhtml:0" NAME="item"
+   PATH="/filterSecured/menue.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="profil::#filterSecured#datenAnsicht.xhtml"
+    NAME="output1" PATH="/filterSecured/datenAnsicht.xhtml"
+    TARGET="rules:#filterSecured#datenAnsicht.xhtml" TITLE="profil" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="kanban::#filterSecured#kanbanAnsicht.xhtml"
+    NAME="output2" PATH="/filterSecured/kanbanAnsicht.xhtml"
+    TARGET="rules:#filterSecured#kanbanAnsicht.xhtml" TITLE="kanban" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="kanbanInaktiv::#filterSecured#kanbanAnsichtInaktiv.xhtml"
+    NAME="output3" PATH="/filterSecured/kanbanAnsichtInaktiv.xhtml"
+    TARGET="rules:#filterSecured#kanbanAnsichtInaktiv.xhtml"
+    TITLE="kanbanInaktiv" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="projekt::#filterSecured#projektDetail.xhtml"
+    NAME="output4" PATH="/filterSecured/projektDetail.xhtml"
+    TARGET="rules:#filterSecured#projektDetail.xhtml" TITLE="projekt" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aufgabe::#filterSecured#aufgabeDetail.xhtml"
+    NAME="output" PATH="/filterSecured/aufgabeDetail.xhtml"
+    TARGET="rules:#filterSecured#aufgabeDetail.xhtml" TITLE="aufgabe" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#projektSuchen.xhtml"
+  PATH="/filterSecured/projektSuchen.xhtml" SHAPE="32,273,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#projektSuchen.xhtml:0"
+   NAME="item" PATH="/filterSecured/projektSuchen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="bearbeiten::#filterSecured#projektDetail.xhtml" NAME="output"
+    PATH="/filterSecured/projektDetail.xhtml"
+    TARGET="rules:#filterSecured#projektDetail.xhtml" TITLE="bearbeiten" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#projektDetail.xhtml"
+  PATH="/filterSecured/projektDetail.xhtml" SHAPE="240,289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#projektDetail.xhtml:0"
+   NAME="item" PATH="/filterSecured/projektDetail.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="zurück::#filterSecured#menue.xhtml"
+    NAME="output" PATH="/filterSecured/menue.xhtml"
+    TARGET="rules:#filterSecured#menue.xhtml" TITLE="zurück" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#aufgabeSuchen.xhtml"
+  PATH="/filterSecured/aufgabeSuchen.xhtml" SHAPE="256,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#aufgabeSuchen.xhtml:0"
+   NAME="item" PATH="/filterSecured/aufgabeSuchen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="bearbeiten::#filterSecured#aufgabeDetail.xhtml" NAME="output1"
+    PATH="/filterSecured/aufgabeDetail.xhtml"
+    TARGET="rules:#filterSecured#aufgabeDetail.xhtml" TITLE="bearbeiten" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#datenAnsicht.xhtml"
+  PATH="/filterSecured/datenAnsicht.xhtml" SHAPE="256,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#datenAnsicht.xhtml:0"
+   NAME="item" PATH="/filterSecured/datenAnsicht.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="registration::#registration.xhtml"
+    NAME="output1" PATH="/registration.xhtml"
+    TARGET="rules:#registration.xhtml" TITLE="registration" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#kanbanAnsicht.xhtml"
+  PATH="/filterSecured/kanbanAnsicht.xhtml" SHAPE="256,913,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#filterSecured#visualisierungAuswahl.xhtml"
+  PATH="/filterSecured/visualisierungAuswahl.xhtml" SHAPE="256,1361,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#visualisierungAuswahl.xhtml:0"
+   NAME="item" PATH="/filterSecured/visualisierungAuswahl.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="fortschritt::#filterSecured#visualisierungFortschritt.xhtml"
+    NAME="output" PATH="/filterSecured/visualisierungFortschritt.xhtml"
+    TARGET="rules:#filterSecured#visualisierungFortschritt.xhtml"
+    TITLE="fortschritt" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="einhaltung::#filterSecured#visualisierungTermineinhaltung.xhtml"
+    NAME="output1"
+    PATH="/filterSecured/visualisierungTermineinhaltung.xhtml"
+    TARGET="rules:#filterSecured#visualisierungTermineinhaltung.xhtml"
+    TITLE="einhaltung" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#aufgabeDetail.xhtml"
+  PATH="/filterSecured/aufgabeDetail.xhtml" SHAPE="528,561,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#aufgabeDetail.xhtml:0"
+   NAME="item" PATH="/filterSecured/aufgabeDetail.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="zurück::#filterSecured#menue.xhtml"
+    NAME="output1" PATH="/filterSecured/menue.xhtml"
+    TARGET="rules:#filterSecured#menue.xhtml" TITLE="zurück" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="suche::#filterSecured#aufgabeSuchen.xhtml"
+    NAME="output2" PATH="/filterSecured/aufgabeSuchen.xhtml"
+    TARGET="rules:#filterSecured#aufgabeSuchen.xhtml" TITLE="suche" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#aufgabeBearbeiten.xhtml"
+  PATH="/filterSecured/aufgabeBearbeiten.xhtml" SHAPE="256,721,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#aufgabeBearbeiten.xhtml:0"
+   NAME="item" PATH="/filterSecured/aufgabeBearbeiten.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="detail::#filterSecured#aufgabeDetail.xhtml"
+    NAME="output1" PATH="/filterSecured/aufgabeDetail.xhtml"
+    TARGET="rules:#filterSecured#aufgabeDetail.xhtml" TITLE="detail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#projektBearbeiten.xhtml"
+  PATH="/filterSecured/projektBearbeiten.xhtml" SHAPE="32,449,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#projektBearbeiten.xhtml:0"
+   NAME="item" PATH="/filterSecured/projektBearbeiten.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="detail::#filterSecured#projektDetail.xhtml"
+    NAME="output1" PATH="/filterSecured/projektDetail.xhtml"
+    TARGET="rules:#filterSecured#projektDetail.xhtml" TITLE="detail" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#kanbanSuchen.xhtml"
+  PATH="/filterSecured/kanbanSuchen.xhtml" SHAPE="32,1169,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#kanbanSuchen.xhtml:0"
+   NAME="item" PATH="/filterSecured/kanbanSuchen.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="kanban::#filterSecured#kanbanAnsicht.xhtml"
+    NAME="output" PATH="/filterSecured/kanbanAnsicht.xhtml"
+    TARGET="rules:#filterSecured#kanbanAnsicht.xhtml" TITLE="kanban" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="kanbanInaktiv::#filterSecured#kanbanAnsichtInaktiv.xhtml"
+    NAME="output1" PATH="/filterSecured/kanbanAnsichtInaktiv.xhtml"
+    TARGET="rules:#filterSecured#kanbanAnsichtInaktiv.xhtml"
+    TITLE="kanbanInaktiv" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#kanbanAnsichtInaktiv.xhtml"
+  PATH="/filterSecured/kanbanAnsichtInaktiv.xhtml" SHAPE="256,1073,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#filterSecured#datenBearbeiten.xhtml"
+  PATH="/filterSecured/datenBearbeiten.xhtml" SHAPE="272,497,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#datenBearbeiten.xhtml:0"
+   NAME="item" PATH="/filterSecured/datenBearbeiten.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ansicht::#filterSecured#datenAnsicht.xhtml"
+    NAME="output1" PATH="/filterSecured/datenAnsicht.xhtml"
+    TARGET="rules:#filterSecured#datenAnsicht.xhtml" TITLE="ansicht" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#ergebnisSuche.xhtml"
+  PATH="/filterSecured/ergebnisSuche.xhtml" SHAPE="1008,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#ergebnisSuche.xhtml:0"
+   NAME="item" PATH="/filterSecured/ergebnisSuche.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="kanban::#filterSecured#kanbanAnsicht.xhtml"
+    NAME="output1" PATH="/filterSecured/kanbanAnsicht.xhtml"
+    TARGET="rules:#filterSecured#kanbanAnsicht.xhtml" TITLE="kanban" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="kanbanInaktiv::#filterSecured#kanbanAnsichtInaktiv.xhtml"
+    NAME="output2" PATH="/filterSecured/kanbanAnsichtInaktiv.xhtml"
+    TARGET="rules:#filterSecured#kanbanAnsichtInaktiv.xhtml"
+    TITLE="kanbanInaktiv" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="projekt::#filterSecured#projektDetail.xhtml"
+    NAME="output3" PATH="/filterSecured/projektDetail.xhtml"
+    TARGET="rules:#filterSecured#projektDetail.xhtml" TITLE="projekt" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="aufgabe::#filterSecured#aufgabeDetail.xhtml"
+    NAME="output" PATH="/filterSecured/aufgabeDetail.xhtml"
+    TARGET="rules:#filterSecured#aufgabeDetail.xhtml" TITLE="aufgabe" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#filterSecured#visualisierungFortschritt.xhtml"
+  PATH="/filterSecured/visualisierungFortschritt.xhtml"
+  SHAPE="560,2033,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM
+  NAME="rules:#filterSecured#visualisierungTermineinhaltung.xhtml"
+  PATH="/filterSecured/visualisierungTermineinhaltung.xhtml"
+  SHAPE="560,2033,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="816,305,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="ergebnis::#filterSecured#ergebnisSuche.xhtml" NAME="output"
+    PATH="/filterSecured/ergebnisSuche.xhtml"
+    TARGET="rules:#filterSecured#ergebnisSuche.xhtml" TITLE="ergebnis" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:*:1" PATH="*" SHAPE="288,657,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:1" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="logout::#login.xhtml" NAME="output"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="logout" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#userAnsicht.xhtml"
+  PATH="/filterSecured/userAnsicht.xhtml" SHAPE="32,2401,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#userAnsicht.xhtml:0"
+   NAME="item" PATH="/filterSecured/userAnsicht.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="einladung::#filterSecured#einladung.xhtml"
+    NAME="output" PATH="/filterSecured/einladung.xhtml"
+    TARGET="rules:#filterSecured#einladung.xhtml" TITLE="einladung" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#filterSecured#einladung.xhtml"
+  PATH="/filterSecured/einladung.xhtml" SHAPE="240,2417,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#filterSecured#einladung.xhtml:0" NAME="item"
+   PATH="/filterSecured/einladung.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ansicht::#filterSecured#userAnsicht.xhtml"
+    NAME="output" PATH="/filterSecured/userAnsicht.xhtml"
+    TARGET="rules:#filterSecured#userAnsicht.xhtml" TITLE="ansicht" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>

@@ -1,0 +1,113 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Projektübersicht" />
+
+<ui:define name="content">
+	<div class="inhalte-zentriert">
+		<h1 class="ueberschrift">Projektübersicht</h1>
+	</div>
+	<br/>
+	<br/>
+	
+	<h:form id="formId"> 
+		<p:growl id="msgs" showDetail="true"/>
+		<p:dataTable id="projekteTabelle" var="project" value="#{projektAnsichtView.projekte}" editable="true" scrollable="true" scrollHeight="600" resizableColumns="true">
+		
+			<p:ajax event="rowEdit" listener="#{projektAnsichtView.onRowEdit}" update=":formId:msgs"/>
+			<p:ajax event="rowEditCancel" listener="#{projektAnsichtView.onRowCancel}" update=":formId:msgs"/>
+			
+			<p:column class="schrift" headerText="Name" sortBy="#{project.name}" editable="false">
+				<h:outputText class="schrift" value="#{project.name}"/>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Beschreibung " sortBy="#{project.beschreibung}" editable="true">
+				<p:cellEditor> 
+					<f:facet name="output">
+						<h:outputLink id="fade" value="#">
+							<h:outputText class="schrift" value="Beschreibung" />
+						</h:outputLink>
+						<p:tooltip id="toolTipFade" for="fade" value="#{project.beschreibung}" position="top"/>
+					</f:facet>
+					<f:facet name="input"><h:inputText class="schrift" value="#{project.beschreibung}" style="width:100%"/></f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Deadline" sortBy="#{project.deadline}">
+				<p:cellEditor> 
+					<f:facet name="output"><h:outputText class="schrift" value="#{project.formattedDate}"/></f:facet>
+					<f:facet for="german" name="input"><p:calendar class="schrift" id="german" value="#{project.deadline}" locale="de" navigator="true" pattern="yyyy-MM-dd" style="width:100%"/></f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Priorität" sortBy="#{project.prioritaet}">
+				<p:cellEditor> 
+					<f:facet name="output"><h:outputText class="schrift" value="#{project.prioritaet}"/></f:facet>
+					<f:facet name="input">
+						<h:selectOneMenu class="schrift" value="#{project.prioritaet}" style="width:100%">
+							<f:selectItems value="#{projektAnsichtView.prios}" var="prio" itemLabel="#{prio}" itemValue="#{prio}"/>
+						</h:selectOneMenu>
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Aktiv" sortBy="#{project.aktiv}" editable="false">
+					<h:outputText class="schrift" value="#{project.aktiv}"/>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Master" sortBy="#{project.initiator.benutzername}" editable="true">
+				<p:cellEditor>
+					<f:facet name="output"><h:outputText class="schrift" value="#{project.initiator.benutzername}"/></f:facet>
+					<f:facet name="input">
+						<h:selectOneMenu class="schrift" value="#{project.initiator.benutzername}" style="width:100%">
+							<f:selectItems value="#{projektAnsichtView.initiatoren}" var="master" itemLabel="#{master.benutzername}" itemValue="#{master.benutzername}"/>
+						</h:selectOneMenu>
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Kanban" sortBy="#{project.kanban.kanbanName}">
+				<p:cellEditor> 
+					<f:facet name="output"><h:outputText class="schrift" value="#{project.kanban.kanbanName}"/></f:facet>
+					<f:facet name="input">
+						<h:selectOneMenu class="schrift" value="#{project.kanban.kanbanName}" style="width:100%">
+							<f:selectItems value="#{projektAnsichtView.kanbans}" var="kanban" itemLabel="#{kanban.kanbanName}" itemValue="#{kanban.kanbanName}"/>
+						</h:selectOneMenu>
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Edit" style="width:32px">
+				<p:rowEditor/>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Archiv">
+				<p:commandButton value="Detail" icon="ui-icon-info" update=":documentPanel" oncomplete="PF('dlg').show();">
+					<f:setPropertyActionListener value="#{project}" target="#{projektAnsichtView.selectedProjekt}"/>
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	
+	</h:form>
+	
+		<p:dialog header="Detailansicht" widgetVar="dlg" modal="true" appendTo="@(body)" showEffect="clip" hideEffect="fold">
+			<p:outputPanel id="documentPanel">
+				<h:panelGrid id="display" columns="2" cellpadding="4">
+					<h:outputText class="schrift" value="Projektname: " />
+					<h:outputText class="schrift" value="#{projektAnsichtView.selectedProjekt.name}" />
+					
+					<p:commandButton id="deleteBtn" icon="ui-icon-trash" value="Datensatz löschen" update=":formId:projekteTabelle" action="#{projektAnsichtView.deleteProject()}"/>
+					<p:commandButton id="archivBtn" icon="ui-icon-tag" value="Archivieren/Aktivieren" action="#{projektAnsichtView.archiveProjekt()}" update=":formId:projekteTabelle"/>
+				</h:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
+	
+	
+</ui:define>
+
+</ui:composition>

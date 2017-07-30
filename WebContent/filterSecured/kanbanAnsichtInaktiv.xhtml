@@ -1,0 +1,140 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Kanban Ansicht Inaktiv"/>
+
+<ui:define name="content">
+	<h1 class="inhalte-zentriert ueberschrift">Kanban-Board (inaktiv)</h1>
+	
+	<h:form id="formId">
+		<p:growl id="msgs" showDetail="true"/>
+		<div class="ui-g" style="height:100%">
+			<div class="ui-g-12 ui-md-3">
+				<p:fieldset class="backlog" id="backlogId" legend="Backlog">
+					<p:dataGrid id="availableTask" var="taskBacklog" value="#{kanbanAnsichtView.backlog}" columns="1">
+						<p:panel id="pnl1" header="#{taskBacklog.name}">
+							<h:outputLink id="backlogTip" value="#">
+								<h:outputText value="Details"/>
+							</h:outputLink>
+							<p:tooltip id="backlogTipContent" for="backlogTip" position="bottom">
+								<h:panelGrid columns="2">
+									<p:outputLabel class="schrift" value="Beschreibung: "/>
+									<p:outputLabel class="schrift" value="#{taskBacklog.beschreibung}"/>
+									
+									<p:outputLabel class="schrift" value="Deadline: "/>
+									<p:outputLabel class="schrift" value="#{taskBacklog.formattedDate}"/> 
+									
+									<p:outputLabel class="schrift" value="Aufwand [h]: "/>
+									<p:outputLabel class="schrift" value="#{taskBacklog.schaetzung}"/>
+								</h:panelGrid>
+							</p:tooltip>
+						</p:panel>
+					</p:dataGrid>
+				</p:fieldset>
+			</div>
+			
+			<div class="ui-g-12 ui-md-6">
+				<p:fieldset class="colorMiddle" id="toDoId" legend="To Do">
+					<p:dataGrid id="toDoTaskId" var="taskToDo" value="#{kanbanAnsichtView.toDo}" columns="1" rendered="#{not empty kanbanAnsichtView.toDo}">
+						<p:panel class="kanbanAufgabe" id="pnl2" header="#{taskToDo.name}">
+							<h:outputLink id="todoTip" value="#">
+								<h:outputText value="Details"/>
+							</h:outputLink>
+							<p:tooltip id="todoTipContent" for="todoTip" position="bottom">
+								<h:panelGrid columns="2">
+									<p:outputLabel class="schrift" value="Beschreibung: "/>
+									<p:outputLabel class="schrift" value="#{taskToDo.beschreibung}"/>
+									
+									<p:outputLabel class="schrift" value="Deadline: "/>
+									<p:outputLabel class="schrift" value="#{taskToDo.formattedDate}"/> 
+									
+									<p:outputLabel class="schrift" value="Aufwand [h]: "/>
+									<p:outputLabel class="schrift" value="#{taskToDo.schaetzung}"/>
+								</h:panelGrid>
+							</p:tooltip>
+						</p:panel>
+					</p:dataGrid>
+				</p:fieldset>
+				<br/>
+				<p:fieldset class="colorMiddle" id="inProgressId" legend="In Progress">
+					<p:dataGrid id="inProgressTaskId" var="taskInProgress" value="#{kanbanAnsichtView.inProgress}" columns="1" rendered="#{not empty kanbanAnsichtView.inProgress}">
+						<p:panel class="kanbanAufgabe" id="pnl3" header="#{taskInProgress.name}">
+							<h:outputLink id="inprogressTip" value="#">
+								<h:outputText value="Details"/>
+							</h:outputLink>
+							<p:tooltip id="inprogressTipContent" for="inprogressTip" position="bottom">
+								<h:panelGrid columns="2">
+									<p:outputLabel class="schrift" value="Beschreibung: "/>
+									<p:outputLabel class="schrift" value="#{taskInProgress.beschreibung}"/>
+									
+									<p:outputLabel class="schrift" value="Deadline: "/>
+									<p:outputLabel class="schrift" value="#{taskInProgress.formattedDate}"/> 
+									
+									<p:outputLabel class="schrift" value="Aufwand [h]: "/>
+									<p:outputLabel class="schrift" value="#{taskInProgress.schaetzung}"/>
+								</h:panelGrid>
+							</p:tooltip>
+						</p:panel>
+					</p:dataGrid>
+				</p:fieldset>
+				<br/>
+				<p:fieldset class="colorMiddle" id="testingId" legend="Testing">
+						<p:dataGrid id="testingTaskId" var="taskTesting" value="#{kanbanAnsichtView.testing}" columns="1" rendered="#{not empty kanbanAnsichtView.testing}">
+							<p:panel class="kanbanAufgabe" id="pnl4" header="#{taskTesting.name}">
+								<h:outputLink id="testingTip" value="#">
+								<h:outputText value="Details"/>
+							</h:outputLink>
+							<p:tooltip id="testingTipContent" for="testingTip" position="bottom">
+								<h:panelGrid columns="2">
+									<p:outputLabel class="schrift" value="Beschreibung: "/>
+									<p:outputLabel class="schrift" value="#{taskTesting.beschreibung}"/>
+									
+									<p:outputLabel class="schrift" value="Deadline: "/>
+									<p:outputLabel class="schrift" value="#{taskTesting.formattedDate}"/> 
+									
+									<p:outputLabel class="schrift" value="Aufwand [h]: "/>
+									<p:outputLabel class="schrift" value="#{taskTesting.schaetzung}"/>
+								</h:panelGrid>
+							</p:tooltip>
+							</p:panel>
+						</p:dataGrid>
+				</p:fieldset>
+			</div>
+			
+			<div class="ui-g-12 ui-md-3">
+				<p:fieldset class="done" id="doneId" legend="Done">
+					<p:dataList id="doneTable" var="taskDone" value="#{kanbanAnsichtView.done}" rendered="#{not empty kanbanAnsichtView.done}">
+						<p:commandLink update=":formId:display" oncomplete="PF('taskDialog').show()" icon="fa fa-search">
+							<f:setPropertyActionListener value="#{taskDone}" target="#{kanbanAnsichtView.selectedAufgabe}"></f:setPropertyActionListener>
+							<h:outputText value="#{taskDone.name}"/>
+						</p:commandLink>
+					</p:dataList>
+				</p:fieldset>
+			</div>
+		</div>
+		
+		<p:dialog header="Aufgabe Detail" widgetVar="taskDialog" resizable="false" draggable="false" showEffect="fade" hideEffect="fade" modal="true">
+			<p:outputPanel id="display">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputText class="schrift" value="Name: "/>
+					<h:outputText class="schrift" value="#{kanbanAnsichtView.selectedAufgabe.name}" />
+					
+					<h:outputText class="schrift" value="Beschreibung:"/>
+					<h:outputText class="schrift" value="#{kanbanAnsichtView.selectedAufgabe.beschreibung}"/>
+					
+					<h:outputText class="schrift" value="Deadline: "/>
+					<h:outputText class="schrift" value="#{kanbanAnsichtView.selectedAufgabe.formattedDate}" />
+					
+					<h:outputText class="schrift" value="Aufwand [h]: "/>
+					<h:outputText class="schrift" value="#{kanbanAnsichtView.selectedAufgabe.schaetzung}" />
+				</h:panelGrid>
+			</p:outputPanel>
+		</p:dialog>
+	</h:form>
+</ui:define>
+</ui:composition>

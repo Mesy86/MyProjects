@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<h:head>
+	<title><h:outputText value="#{seitenTitel}"/></title>
+	<h:outputStylesheet library="css" name="intern.css"/>
+</h:head>
+
+<h:body>
+	<div>
+		<h:form>
+			<p:menubar id="menubar">
+				<p:submenu label="Projekt" icon="fa fa-fw fa-folder-open">
+					<p:menuitem value="Anlegen" outcome="projektAnlegen.xhtml" icon="fa fa-fw fa-plus"/>
+					<p:menuitem value="Suchen/Bearbeiten" outcome="projektSuchen.xhtml" icon="fa fa-fw fa-search"/>
+					<p:menuitem value="Ansicht/Bearbeiten" outcome="projektAnsicht.xhtml" icon="fa fa-fw fa-table"/>
+				</p:submenu>
+				
+				<p:submenu label="Aufgabe" icon="fa fa-fw fa-tasks">
+					<p:menuitem value="Anlegen" outcome="aufgabeAnlegen.xhtml" icon="fa fa-fw fa-plus"/>
+					<p:menuitem value="Suchen/Bearbeiten" outcome="aufgabeSuchen.xhtml" icon="fa fa-fw fa-search"/>
+					<p:menuitem value="Ansicht/Bearbeiten" outcome="aufgabenAnsicht.xhtml" icon="fa fa-fw fa-table"/> 
+				</p:submenu>
+				
+				<p:submenu label="Kanban-Board" icon="fa fa-fw fa-clipboard">
+					<p:menuitem value="Erklärung" outcome="kanbanErklaerung.xhtml" icon="fa fa-fw fa-question"/>
+					<p:menuitem value="Ansicht/Bearbeitung" outcome="kanbanSuchen.xhtml" icon="fa fa-fw fa-search"/> 
+				</p:submenu>
+				
+				<p:submenu label="Visualisierung" icon="fa fa-fw fa-eye">
+					<p:menuitem value="Erklärung" outcome="visualisierungErklaerung.xhtml" icon="fa fa-fw fa-question"/>
+					<p:menuitem value="Einzelprojekt" outcome="visualisierungAuswahl.xhtml" icon="fa fa-fw fa-file"/>
+					<p:menuitem value="Gesamtüberblick" outcome="visualisierungFertigstellung.xhtml" icon="fa fa-fw fa-folder-open"/>
+				</p:submenu>
+				
+				<p:submenu label="User" icon="fa fa-fw fa-user">
+					<p:menuitem value="Account" outcome="datenAnsicht.xhtml" icon="fa fa-fw fa-th-list"/>
+					<p:menuitem value="Daten bearbeiten" outcome="datenBearbeiten.xhtml" icon="fa fa-fw fa-edit"/>
+					<p:menuitem value="Ansicht/Einladen" outcome="userAnsicht.xhtml" icon="fa fa-fw fa-table"/>
+				</p:submenu>
+				
+				<p:menuitem icon="fa fa-fw fa-home" value="Dashboard" outcome="menue.xhtml"></p:menuitem>
+				
+				<f:facet name="options">
+					<p:inputText id="inputSuche" value="#{menueView.suchbegriff}" style="margin-right:10px" placeholder="Suche" title="Volltextsuche in Projekt-/ Aufgaben-/ Kanbanboardnamen"/>
+					<p:tooltip id="tooltipSuche" for="inputSuche" showEvent="focus" hideEvent="blur"/>
+					<p:commandButton value="Suchen" action="#{menueView.suche()}" style="display: none"/>
+					<p:commandButton icon="fa fa-fw fa-power-off" value="Logout" action="#{menueView.logout()}"></p:commandButton>
+				</f:facet>
+			</p:menubar>
+			<p:sticky target="menubar"/>
+		</h:form>
+	</div>
+
+	<div class="ui-fluid main">
+		<ui:insert name="content"/>
+	</div>
+</h:body>
+
+</html>

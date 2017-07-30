@@ -1,0 +1,52 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Nutzerübersicht" />
+
+<ui:define name="content">
+	<div class="inhalte-zentriert">
+		<h1 class="ueberschrift">Nutzerübersicht</h1>
+	</div>
+	<br/>
+	<br/>
+	
+	<h:form id="formId"> 
+		<p:growl id="msgs" showDetail="true"/>
+		<p:dataTable id="nutzerTabelle" var="user" value="#{userAnsichtView.nutzerListe}" scrollable="true" scrollHeight="600" resizableColumns="true">
+			
+			<p:ajax event="rowEdit" listener="#{projektAnsichtView.onRowEdit}" update=":formId:msgs"/>
+			<p:ajax event="rowEditCancel" listener="#{projektAnsichtView.onRowCancel}" update=":formId:msgs"/>
+			
+			<p:column class="schrift" headerText="Vorname" sortBy="#{user.vorname}">
+				<h:outputText class="schrift" value="#{user.vorname}"/>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Nachname" sortBy="#{user.nachname}">
+				<h:outputText class="schrift" value="#{user.nachname}"/>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Benutzername" sortBy="#{user.benutzername}">
+				<h:outputText class="schrift" value="#{user.benutzername}"/>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Mail" sortBy="#{user.mail}" >
+				<h:outputText class="schrift" value="#{user.mail}"/>
+			</p:column>
+			
+			<p:column class="schrift" headerText="Einladen">
+				<p:commandButton value="Detail" icon="ui-icon-info" action="#{userAnsichtView.einladen()}">
+					<f:setPropertyActionListener value="#{user}" target="#{userAnsichtView.selectedNutzer}"/>
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+		
+	
+</ui:define>
+
+</ui:composition>

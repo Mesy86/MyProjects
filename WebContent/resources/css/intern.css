@@ -1,0 +1,176 @@
+@CHARSET "ISO-8859-1";
+
+.inhalte-zentriert
+{
+	display:flex; 
+	align-items: center; 
+	justify-content: center; 
+}
+
+.btn-zentriert
+{
+	display:block; 
+	margin-left:auto; 
+	margin-right:auto; 
+}
+
+html
+{
+	background-image:url(#{resource['pictures:zeit.jpg']}); 
+}
+
+body
+{
+	background-image: linear-gradient(hsla(360,0%,100%,0.6), hsla(360,0%,100%,0.6));
+    min-height: 100vh;
+}
+
+.kanbanAufgabeBacklog
+{
+	
+}
+
+.kanbanAufgabe
+{
+	width:50%;
+	height:20%; 
+	word-break:break-all;
+}
+
+.ui-datagrid-content
+{
+	border:none;
+	background-color:papayawhip;
+}
+
+.ui-fieldset
+{
+	border: solid !important;
+}
+
+.ui-fieldset-legend
+{
+	background-color: white !important;
+	border: solid !important;
+}
+
+.backlog
+{
+	height:100%;
+	background-color: grey;
+}
+
+.colorMiddle
+{
+	background-color: papayawhip;	 
+}
+
+.done
+{
+	height:100%;
+	background-color: green; 
+}
+
+.breite30
+{
+	width:30%; 
+}
+
+.breite20
+{
+	width:20%; 
+}
+
+.breite100
+{
+	width:100%; 
+}
+
+.datatable
+{
+	height: 500px; 
+}
+
+.overlayPanel
+{
+	width:25%; 
+	height:auto; 
+}
+
+.overlayPanelDiagramme
+{
+	width:25%; 
+	height:auto; 
+}
+
+.ueberschrift
+{
+	font-style: bold;
+}
+
+.button
+{
+	width:50%; 
+}
+
+.button100
+{
+	width:100%; 
+}
+
+.button20
+{
+	width:20%; 
+}
+
+.button25
+{
+	width:25% !important; 
+}
+
+.buttonAuto
+{
+	width:auto; 
+	height:auto; 
+}
+
+.schrift
+{
+	word-break:break-all;
+}
+
+.schriftErklaerung
+{
+	font-style:bold; 
+	font-size:1.5em; 
+}
+
+.inputfeld
+{
+	width:100%; 
+}
+
+.selectonemenu
+{
+	width:100% !important; 
+}
+
+.panel
+{
+	display:flex; 
+	align-items: center; 
+	justify-content: center; 
+	margin:auto;  
+}
+
+.btnDiv
+{
+	position:absolute; 
+	left:48%; 
+}
+
+.dataList
+{
+	width:30%;
+	height:auto; 
+}

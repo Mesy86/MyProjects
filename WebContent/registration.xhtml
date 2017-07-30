@@ -1,0 +1,50 @@
+<ui:composition template="templateAnmeldung.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Registration"/>
+
+<ui:define name="content">
+	<div class="inhalte-zentriert">
+		<h1 class="ueberschrift">Registration</h1>
+	</div>
+	<br/>
+	<br/>
+	
+	<h:form id="form" class="inhalte-zentriert"> 
+		<p:growl id="msgs" showDetail="true"/>
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel for="vorname" value="Vorname: "/>
+			<p:inputText id="vorname" value="#{registrationView.vorname}" />
+			
+			<p:outputLabel for="nachname" value="Nachname: "/>
+			<p:inputText id="nachname" value="#{registrationView.nachname}" />
+			
+			<p:outputLabel for="benutzername" value="Benutzername: "/>
+			<p:inputText id="benutzername" value="#{registrationView.benutzername}" validator="benutzernameValidator"/>
+			
+			<p:outputLabel for="mail" value="Email: "/>
+			<p:inputText id="mail" value="#{registrationView.mail}" validator="emailValidator"/>
+			
+			<p:outputLabel for="passwort" value="Passwort: "/>
+			<p:password id="passwort" value="#{registrationView.passwort}" validator="passwortValidator">
+				<f:attribute name="passwortWdh" value="#{passwortWdh}"/>
+			</p:password>
+			
+			<p:outputLabel for="passwortWdh" value="Wiederholung Passwort: "/>
+			<p:password id="passwortWdh" value="#{registrationView.passwortWdh}" binding="#{passwortWdh}"/>
+			<br/>
+			
+			<f:facet name="footer">
+			<h:panelGroup style="display:block; text-align:center">
+				<p:commandButton class="button" icon="ui-icon-disk" value="Registrieren" action="#{registrationView.registrieren()}" update=":form:msgs"/>
+			</h:panelGroup>
+			</f:facet>
+		</h:panelGrid>
+	</h:form>
+</ui:define>
+</ui:composition>

@@ -1,0 +1,46 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Erklärung Kanban" />
+
+<ui:define name="content">
+	<h1 class="inhalte-zentriert ueberschrift">Fragen zu Kanban</h1>
+	<br/>
+	<br/>
+	
+	<h:form>
+		<p:commandLink id="kanbanId" class="inhalte-zentriert schriftErklaerung" value="Was ist Kanban?"/>
+		<p:overlayPanel id="kanbanPanel" for="kanbanId" class="overlayPanel" showEffect="blind" hideEffect="explode" showCloseIcon="true" my="right top" at="center bottom">
+			<p:outputLabel class="schrift" id="outputKanban" value="#{kanbanErklaerungView.erklaereKanban()}"/>
+		</p:overlayPanel>
+		<br/>
+		<br/>
+		
+		<p:commandLink id="boardId" class="inhalte-zentriert schriftErklaerung" value="Was ist ein Kanban-Board?"/>
+		<p:overlayPanel id="boardPanel" for="boardId" class="overlayPanel" showEffect="blind" hideEffect="explode" showCloseIcon="true" my="right top" at="center bottom">
+			<p:outputLabel class="schrift" id="outputBoard" value="#{kanbanErklaerungView.erklaereBoard()}"/>
+		</p:overlayPanel>
+		<br/>
+		<br/>
+		
+		<p:commandLink id="boardProgrammId" class="inhalte-zentriert schriftErklaerung" value="Kanban-Boards im Programm"/>
+		<p:overlayPanel id="boardProgrammPanel" for="boardProgrammId" class="overlayPanel" showEffect="blind" hideEffect="explode" showCloseIcon="true" my="right top" at="center bottom">
+			<p:outputLabel class="schrift" id="outputBoardProgramm" value="#{kanbanErklaerungView.erklaereBoardProgramm()}"/>
+		</p:overlayPanel>
+		<br/>
+		<br/>
+		
+		<p:commandLink id="regelnId" class="inhalte-zentriert schriftErklaerung" value="Regeln für Kanban-Boards"/>
+		<p:overlayPanel id="regelnPanel" for="regelnId" class="overlayPanel" showEffect="blind" hideEffect="explode" showCloseIcon="true" my="right top" at="center bottom">
+			<p:outputLabel class="schrift" id="outputRegeln" value="#{kanbanErklaerungView.erklaereRegeln()}"/>
+		</p:overlayPanel>
+	</h:form>
+	
+	
+</ui:define>
+</ui:composition>

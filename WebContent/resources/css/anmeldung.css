@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+
+.inhalte-zentriert
+{
+	display:flex; 
+	align-items: center; 
+	justify-content: center; 
+}
+
+.ui-icon.fa
+{
+	text-indent:0px;
+	background-image:none;
+}
+
+.ueberschrift
+{
+	font-style: bold;
+}
+
+.button
+{
+	width:50%; 
+}
+
+.schrift
+{
+	font-family: "MetaNormalLF-Roman";
+}
+
+.fa-home
+{
+	font-size:2em; 
+}
+

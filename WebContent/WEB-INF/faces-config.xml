@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+ <navigation-rule>
+  <from-view-id>*</from-view-id>
+ <navigation-case>
+  <from-outcome>ergebnis</from-outcome>
+  <to-view-id>/filterSecured/ergebnisSuche.xhtml</to-view-id>
+ <redirect/>
+ </navigation-case>
+</navigation-rule>
+
+<navigation-rule>
+  <from-view-id>*</from-view-id>
+ <navigation-case>
+  <from-outcome>logout</from-outcome>
+  <to-view-id>/login.xhtml</to-view-id>
+ <redirect/>
+ </navigation-case>
+</navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/home.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>einloggen</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>registrieren</from-outcome>
+   <to-view-id>/registration.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/registration.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>einloggen</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>zurueck</from-outcome>
+   <to-view-id>/home.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/login.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>login</from-outcome>
+   <to-view-id>/filterSecured/menue.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/menue.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>profil</from-outcome>
+   <to-view-id>/filterSecured/datenAnsicht.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>kanban</from-outcome>
+   <to-view-id>/filterSecured/kanbanAnsicht.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>kanbanInaktiv</from-outcome>
+   <to-view-id>/filterSecured/kanbanAnsichtInaktiv.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>projekt</from-outcome>
+   <to-view-id>/filterSecured/projektDetail.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>aufgabe</from-outcome>
+   <to-view-id>/filterSecured/aufgabeDetail.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/projektSuchen.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>bearbeiten</from-outcome>
+   <to-view-id>/filterSecured/projektDetail.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/kanbanSuchen.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>kanban</from-outcome>
+   <to-view-id>/filterSecured/kanbanAnsicht.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>kanbanInaktiv</from-outcome>
+   <to-view-id>/filterSecured/kanbanAnsichtInaktiv.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/projektDetail.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>zurück</from-outcome>
+   <to-view-id>/filterSecured/menue.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/aufgabeSuchen.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>bearbeiten</from-outcome>
+   <to-view-id>/filterSecured/aufgabeDetail.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/aufgabeDetail.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>zurück</from-outcome>
+   <to-view-id>/filterSecured/menue.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>suche</from-outcome>
+   <to-view-id>/filterSecured/aufgabeSuchen.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/aufgabeBearbeiten.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>detail</from-outcome>
+   <to-view-id>/filterSecured/aufgabeDetail.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/projektBearbeiten.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>detail</from-outcome>
+   <to-view-id>/filterSecured/projektDetail.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/datenAnsicht.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>registration</from-outcome>
+   <to-view-id>/registration.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/datenBearbeiten.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>ansicht</from-outcome>
+   <to-view-id>/filterSecured/datenAnsicht.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/visualisierungAuswahl.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>fortschritt</from-outcome>
+   <to-view-id>/filterSecured/visualisierungFortschritt.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>einhaltung</from-outcome>
+   <to-view-id>/filterSecured/visualisierungTermineinhaltung.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/ergebnisSuche.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>kanban</from-outcome>
+   <to-view-id>/filterSecured/kanbanAnsicht.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>kanbanInaktiv</from-outcome>
+   <to-view-id>/filterSecured/kanbanAnsichtInaktiv.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>projekt</from-outcome>
+   <to-view-id>/filterSecured/projektDetail.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>aufgabe</from-outcome>
+   <to-view-id>/filterSecured/aufgabeDetail.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+ <navigation-rule>
+  <from-view-id>/filterSecured/userAnsicht.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>einladung</from-outcome>
+   <to-view-id>/filterSecured/einladung.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
+ 
+<navigation-rule>
+ <from-view-id>/filterSecured/einladung.xhtml</from-view-id>
+ <navigation-case>
+  <from-outcome>ansicht</from-outcome>
+  <to-view-id>/filterSecured/userAnsicht.xhtml</to-view-id>
+ </navigation-case>
+</navigation-rule>
+
+ 
+ <application/>
+</faces-config>

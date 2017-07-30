@@ -1,0 +1,111 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Dashboard" />
+
+<ui:define name="content">
+	<h1 class="inhalte-zentriert ueberschrift">Dashboard</h1>
+	
+	<h:form id="form">
+	<p:growl id="msgs" showDetail="true"/>
+	</h:form>
+	<div class="ui-g">
+		<div class="ui-g-12 ui-md-3">
+			<h2 class="ueberschrift">Module</h2>
+			<p:accordionPanel multiple="true">
+				<p:tab title="Projekte">
+					<h:outputText value="#{menueView.zeigeProjektText()}" />
+				</p:tab>
+				<p:tab title="Aufgaben">
+					<h:outputText value="#{menueView.zeigeAufgabeText()}"/>
+				</p:tab >
+				<p:tab title="Kanban-Board">
+					<h:outputText value="#{menueView.zeigeKanbanText()}"/>
+				</p:tab>
+				<p:tab title="Visualisierung">
+					<h:outputText value="#{menueView.zeigeVisualisierungText()}"/>
+				</p:tab>
+				<p:tab title="User">
+					<h:outputText value="#{menueView.zeigeDatenText()}" />
+				</p:tab>
+				<p:tab title="Dashboard">
+					<h:outputText value="#{menueView.zeigeZurückText()}"/>
+				</p:tab>
+			</p:accordionPanel>
+		</div>
+		<div class="ui-g-12 ui-md-6">
+			<h2 class="ueberschrift">Deine Inhalte</h2>
+			<h:form id="formInhalte">
+				<p:dataList value="#{menueView.kanbans}" var="kanban" type="ordered">
+					<f:facet name="header">
+						<h:outputText value="Deine Kanbans" />
+					</f:facet>
+					<p:commandLink action="#{menueView.zeigeKanbanDetail()}" ajax="false">
+						<f:setPropertyActionListener value="#{kanban}" target="#{menueView.selectedKanban}"></f:setPropertyActionListener>
+						<h:outputText value="#{kanban.kanbanName}"/>
+					</p:commandLink>
+					, Projekt:
+					<h:outputText value="#{kanban.projektName}"/>					
+				</p:dataList>
+				<br/>
+			
+				<p:dataList value="#{menueView.projekte}" var="projekt" type="ordered"> 
+					<f:facet name="header">
+						<h:outputText value="Deine Projekte" /> 
+					</f:facet>
+					<p:commandLink action="#{menueView.zeigeProjektDetail()}" ajax="false">
+						<f:setPropertyActionListener value="#{projekt}" target="#{menueView.selectedProject}"></f:setPropertyActionListener>
+						<h:outputText value="#{projekt.name}" />
+					</p:commandLink>
+					, Deadline:
+					<h:outputText value="#{projekt.formattedDate}"></h:outputText>
+				</p:dataList> 
+				<br/>
+			
+				<p:dataList value="#{menueView.aufgaben}" var="aufgabe" type="ordered">
+					<f:facet name="header">
+						<h:outputText value="Deine Aufgaben" />
+					</f:facet>
+					<p:commandLink action="#{menueView.zeigeAufgabeDetail()}" ajax="false">
+						<f:setPropertyActionListener value="#{aufgabe}" target="#{menueView.selectedAufgabe}"></f:setPropertyActionListener>
+						<h:outputText value="#{aufgabe.name}" />
+					</p:commandLink>
+					, Deadline:
+					<h:outputText value="#{aufgabe.formattedDate}" />
+					, Projekt:
+					<h:outputText value="#{aufgabe.projekt.name}"/>
+				</p:dataList>
+			</h:form>
+		</div>
+		<div class="ui-g-12 ui-md-3">
+			<h2 class="ueberschrift">Deine Daten</h2>
+			<h:form id="datenForm">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="vorname" value="Vorname: "/>
+					<p:outputLabel id="vorname" value="#{menueView.vorname}" />
+					
+					<p:outputLabel for="nachname" value="Nachname: "/>
+					<p:outputLabel id="nachname" value="#{menueView.nachname}"/>
+					
+					<p:outputLabel for="benutzername" value="Benutzername: "/>
+					<p:commandLink action="#{menueView.zeigeUserDetail()}" ajax="false">
+						<p:outputLabel id="benutzername" value="#{menueView.benutzername}"/>
+					</p:commandLink>
+					
+					<p:outputLabel for="email" value="Email: "/>
+					<p:outputLabel id="email" value="#{menueView.email}" />
+					
+					<p:outputLabel for="zeitstempel" value="Eingeloggt seit: "/>
+					<p:outputLabel id="zeitstempel" value="#{menueView.zeit}"/>
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</div>
+	
+</ui:define>
+</ui:composition>

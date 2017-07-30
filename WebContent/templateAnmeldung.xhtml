@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+
+<h:head>
+	<title><h:outputText value="#{seitenTitel}"/></title>
+	<h:outputStylesheet library="css" name="anmeldung.css"></h:outputStylesheet>
+	<h:outputStylesheet library="font-awesome-4.7.0" name="css/font-awesome.css"/>
+</h:head>
+
+<h:body>
+	<div>
+		<p:tabMenu activeIndex="#{param.i}">
+			<p:menuitem value="Home" outcome="home.xhtml" icon="fa fa-fw fa-home"> 
+				<f:param name="i" value="0"/>
+			</p:menuitem>
+			<p:menuitem value="Registrieren" outcome="registration.xhtml" icon="fa fa-fw fa-plus">
+				<f:param name="i" value="1"/>
+			</p:menuitem>
+			<p:menuitem value="Login" outcome="login.xhtml" icon="fa fa-fw fa-sign-in">
+				<f:param name="i" value="2"/>
+			</p:menuitem>
+		</p:tabMenu>
+	</div>
+	
+	
+	<div>
+		<ui:insert name="content"/>
+	</div>
+</h:body>
+
+</html>

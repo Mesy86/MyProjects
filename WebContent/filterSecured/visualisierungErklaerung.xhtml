@@ -1,0 +1,39 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Erklärung Visualisierung" />
+
+<ui:define name="content">
+	<h1 class="inhalte-zentriert ueberschrift">Erklärung Diagramme</h1>
+	<br/>
+	<br/>
+	
+	<h:form>
+		<p:commandLink id="fortschrittId" class="inhalte-zentriert schriftErklaerung" value="Projektfortschritt"/>
+		<p:overlayPanel id="fortschrittPanel" for="fortschrittId" class="overlayPanelDiagramme" showEffect="blind" hideEffect="explode" showCloseIcon="true" my="right top" at="center bottom">
+			<p:outputLabel class="schrift" id="outputFortschritt" value="#{visualisierungErklaerungView.erklaereFortschritt()}"/>
+		</p:overlayPanel>
+		<br/>
+		<br/>
+		
+		<p:commandLink id="einhaltungId" class="inhalte-zentriert schriftErklaerung" value="Termineinhaltung"/>
+		<p:overlayPanel id="einhaltungPanel" for="einhaltungId" class="overlayPanelDiagramme" showEffect="blind" hideEffect="explode" showCloseIcon="true" my="right top" at="center bottom">
+			<p:outputLabel class="schrift" id="outputEinhaltung" value="#{visualisierungErklaerungView.erklaereEinhaltung()}"/>
+		</p:overlayPanel>
+		<br/>
+		<br/>
+		
+		<p:commandLink id="gesamtId" class="inhalte-zentriert schriftErklaerung" value="Gesamtüberblick"/>
+		<p:overlayPanel id="gesamtPanel" for="gesamtId" class="overlayPanelDiagramme" showEffect="blind" hideEffect="explode" showCloseIcon="true" my="right top" at="center bottom">
+			<p:outputLabel class="schrift" id="outputGesamt" value="#{visualisierungErklaerungView.erklaereGesamt()}"/>
+		</p:overlayPanel>
+	</h:form>
+	
+	
+</ui:define>
+</ui:composition>

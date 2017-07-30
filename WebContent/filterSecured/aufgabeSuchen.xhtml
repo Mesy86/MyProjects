@@ -1,0 +1,45 @@
+<ui:composition template="templateIntern.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f = "http://xmlns.jcp.org/jsf/core"
+      xmlns:h = "http://xmlns.jcp.org/jsf/html"
+      xmlns:ui = "http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt = "http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p = "http://primefaces.org/ui">
+      
+<ui:param name="seitenTitel" value="Aufgabe suchen" />
+
+<ui:define name="content">
+	<h1 class="inhalte-zentriert ueberschrift">Auswahl Aufgabe und Projekt</h1>
+	<br/>
+	<br/>
+	<h:form id="form" class="inhalte-zentriert">
+		<p:growl id="msgs" showDetail="true"/>
+		<h:panelGrid columns="2" cellpadding="5">
+			<p:outputLabel class="schrift" for="name" value="Aufgabe: "/>
+			<p:selectOneMenu class="selectonemenu schrift" id="name" value="#{aufgabeSucheView.aufgabenname}">
+				<f:selectItem itemLabel="Bitte auswählen" itemValue="Bitte auswählen"/>
+				<f:selectItems value="#{aufgabeSucheView.aufgaben}" var="aufgabe" itemLabel="#{aufgabe.name}" itemValue="#{aufgabe.name}"/>
+			</p:selectOneMenu>
+			
+			<p:outputLabel class="schrift" for="projektname" value="Projekt: "/>
+			<p:selectOneMenu class="selectonemenu schrift" id="projektname" value="#{aufgabeSucheView.projektname}">
+				<f:selectItem itemLabel="Bitte auswählen" itemValue="Bitte auswählen"/>
+				<f:selectItems value="#{aufgabeSucheView.projekte}" var="projekt" itemLabel="#{projekt.name}" itemValue="#{projekt.name}"/>
+			</p:selectOneMenu>
+			<br/>
+			
+			<f:facet name="footer">
+				<h:panelGroup style="display:block; text-align:center">
+					<p:commandButton class="button" icon="ui-icon-search" value="Suchen" action="#{aufgabeSucheView.sucheAufgabe()}" update=":form:msgs"/>
+					<br/>
+					<br/>
+					<p:button class="button" icon="ui-icon-home" value="Dashboard" outcome="menue.xhtml"/>
+				</h:panelGroup>
+			</f:facet>
+			
+			
+		</h:panelGrid>
+	</h:form>
+
+</ui:define>
+</ui:composition>
